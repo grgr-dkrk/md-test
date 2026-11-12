@@ -1,0 +1,81 @@
+{
+  "source": "最近ローカルでよく使っているモデル.md",
+  "standalone": "最近ローカルでよく使っているモデル.html",
+  "missing": [],
+  "embedded": [
+    {
+      "name": "Qwen_image_2.1_00118.png",
+      "web_file": "1b6bcd74616a.png"
+    },
+    {
+      "name": "スクリーンショット 2026-11-12 23.55.27.png",
+      "web_file": "4954192451bc.png"
+    },
+    {
+      "name": "YuE2_cover_00061.flac",
+      "web_file": "173e67c79c16.m4a"
+    },
+    {
+      "name": "YuE2_cover_00070.flac",
+      "web_file": "915faaa46ffe.m4a"
+    },
+    {
+      "name": "MiniMax_H3_00008_.mp4",
+      "web_file": "fc6cb20d659f.mp4"
+    },
+    {
+      "name": "south.mov",
+      "web_file": "92a1e37db1d3.mp4"
+    },
+    {
+      "name": "hakohaji1.mov",
+      "web_file": "69103a0c87fd.mp4"
+    },
+    {
+      "name": "hakohaji2.mov",
+      "web_file": "b6f41bda8338.mp4"
+    }
+  ],
+  "attachments": [
+    {
+      "name": "MiniMax_H3_00008_.mp4",
+      "bytes": 2487766
+    },
+    {
+      "name": "Qwen_image_2.1_00118.png",
+      "bytes": 2050469
+    },
+    {
+      "name": "YuE2_cover_00061.flac",
+      "bytes": 7192328
+    },
+    {
+      "name": "YuE2_cover_00070.flac",
+      "bytes": 10175760
+    },
+    {
+      "name": "hakohaji1.mov",
+      "bytes": 1448132
+    },
+    {
+      "name": "hakohaji2.mov",
+      "bytes": 592827
+    },
+    {
+      "name": "south.mov",
+      "bytes": 37336938
+    },
+    {
+      "name": "スクリーンショット 2026-11-12 23.55.27.png",
+      "bytes": 71481
+    },
+    {
+      "name": "画面収録 2026-11-13 1.14.11.mov",
+      "bytes": 1884733
+    },
+    {
+      "name": "画面収録 2026-11-13 1.16.57.mov",
+      "bytes": 786771
+    }
+  ]
+}
