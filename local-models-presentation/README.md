@@ -12,7 +12,9 @@
 
 ## 更新方法
 
-本文は元の Markdown を編集してください。HTML の本文を手で直す必要はありません。
+本文は元の Markdown を編集してください。GitHub 上で編集して `main` にコミットすると、自動で HTML を生成して公開します。ローカルでのビルドや、生成した HTML のコミットは不要です。
+
+以下はローカルでも HTML を生成して確認したい場合の手順です。
 
 初回のみ、このフォルダの親で以下を実行します。
 
@@ -35,7 +37,7 @@ local-models-presentation/.venv/bin/python local-models-presentation/build.py
 
 リポジトリ: https://github.com/grgr-dkrk/md-test
 
-`main` に push すると、GitHub Actions が `dist/` を GitHub Pages にデプロイします。原稿や素材を編集した場合は、先に上記の生成コマンドを実行し、原稿・素材・生成結果をまとめてコミットしてください。
+`main` に push すると、GitHub Actions が原稿と素材から `dist/` を再生成して GitHub Pages にデプロイします。原稿や素材を編集した場合は、それらをコミットしてください。
 
 GitHub Pages とリポジトリは公開設定です。画像・動画・音声を含め、URLから閲覧できます。
 

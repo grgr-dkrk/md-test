@@ -14,7 +14,8 @@
 <body>
 <main>
 <h1>最近ローカルでよく使っているモデル</h1>
-<article><h2>話すこと</h2>
+<article><p>2026/11/13(金) の発表資料</p>
+<h2>話すこと</h2>
 <ul>
 <li>（主にローカルで）よく使っているモデルの紹介</li>
 <li>なぜローカルでやってるのか</li>
@@ -68,11 +69,18 @@
 <li>非検閲でないとできない表現があるから</li>
 <li>冬場は暖を取れるから</li>
 </ul>
-<h3>非検閲</h3>
-<p>大手 AI は表現がモデレーションに敗北することがある</p>
+<h2>よく使うモデル</h2>
+<h3>Qwen-Image-2.1-Turbo-Uncensored（イラスト）</h3>
+<p><a href="https://qwen.ai/blog?id=qwen-image-2.1">https://qwen.ai/blog?id=qwen-image-2.1</a><br />
+画像生成、編集、透過画像の生成を統合したモデル</p>
+<p>テキストエンコーダー（プロンプトのAI 向け変換処理）に LLM を使い、自然言語で生成できる。<br />
+画像同士を共演させたり一通りのことができる。<br />
+汎用性の高い GPT-image には勝てない。</p>
+<h4>非検閲のいいところ（？）</h4>
+<p>大手の AI はモデレーションに敗北することがある</p>
 <ul>
 <li>暴力的な怪物キャラクターの描画ができない</li>
-<li>スカートを履いたキャラクターが正面を向かない</li>
+<li>スカートを履いたキャラクターが正面を向けない</li>
 <li>最近は「マーベル風」「アメコミ風」とか指示しても引っかかることがある</li>
 </ul>
 <p>一例<br />
@@ -80,20 +88,14 @@ Qwen</p>
 <figure><img src="assets/1b6bcd74616a.png" alt="Qwen_image_2.1_00118.png" width="339"></figure>
 <p>ChatGPT</p>
 <figure><img src="assets/4954192451bc.png" alt="スクリーンショット 2026-11-12 23.55.27.png"></figure>
-<h2>よく使うモデル</h2>
-<h3>Qwen-Image-2.1-Turbo-Uncensored（イラスト）</h3>
-<p><a href="https://qwen.ai/blog?id=qwen-image-2.1">https://qwen.ai/blog?id=qwen-image-2.1</a><br />
-画像生成、編集、透過画像の生成を統合したモデル</p>
-<p>テキストエンコーダー（プロンプトのAI 向け変換処理）に LLM を使い、自然言語で生成できる。<br />
-画像同士を共演させたり一通りのことができる。<br />
-汎用性の高い GPT-image には勝てない。<br />
-Uncensored（非検閲）モデルだが普通のモデルでも危険な画像を出す時がある</p>
+<p>ちなみに使用しているのは Uncensored（非検閲）モデルだが、Qwen Image は普通のモデルでも危険な画像を出す時がある</p>
 <h3>YuE2 （曲）</h3>
 <p><a href="https://yue2ai.app/">https://yue2ai.app/</a><br />
-楽譜の生成と音楽の生成を段階的にやるモデル<br />
-頑張れば楽譜の細かい指示出しができる（ABC記法でも書ける）<br />
+楽譜の生成と音楽の生成を段階的にやるモデル。<br />
+頑張れば楽譜の細かい指示出しができる（ABC記法でも書ける）。<br />
 無難な曲メーカーとして無難。<br />
 LoRA を用いればカバーもインストもいける</p>
+<h4>サンプル</h4>
 <p>Ella Langley "Choosin' Texas" の勝手カバー</p>
 <p>フレンチハウス風</p>
 <figure><audio controls preload="metadata" aria-label="YuE2_cover_00061.flac" src="assets/173e67c79c16.m4a">音声を再生できません。</audio></figure>
@@ -103,8 +105,9 @@ LoRA を用いればカバーもインストもいける</p>
 <p>VAE（エンコーダー）が優秀で、動画と音声を生成しながらもなんか軽い<br />
 画像、声を生成しといた上で生成させるのが無難<br />
 生成時間は長く、1 秒につき 1 分はかかる</p>
-<p><a href="https://github.com/MiniMax-AI/MiniMax-H3">https://github.com/MiniMax-AI/MiniMax-H3</a><br />
-今月 1, 11, 21 日は丸亀製麺の釜揚げうどんが半額</p>
+<p><a href="https://github.com/MiniMax-AI/MiniMax-H3">https://github.com/MiniMax-AI/MiniMax-H3</a></p>
+<h4>サンプル</h4>
+<p>今月 1, 11, 21 日は丸亀製麺の釜揚げうどんが半額</p>
 <figure><video controls playsinline preload="metadata" poster="assets/fc6cb20d659f.jpg" aria-label="MiniMax_H3_00008_.mp4" src="assets/fc6cb20d659f.mp4">動画を再生できません。</video></figure>
 <h3>翻訳</h3>
 <h4>PLaMo 3 Translate</h4>
@@ -112,6 +115,9 @@ LoRA を用いればカバーもインストもいける</p>
 国産 LLM で 53 カ国対応。<br />
 日本語に強く軽い。<br />
 2B でも十分な性能で M1 Mac レベルでも余裕</p>
+<h4>サンプル</h4>
+<p>サウスパーク自動翻訳<br />
+なお規約上翻訳コンテンツの制作は NG なのでこれもグレーではある</p>
 <figure><video controls playsinline preload="metadata" poster="assets/92a1e37db1d3.jpg" aria-label="south.mov" src="assets/92a1e37db1d3.mp4">動画を再生できません。</video></figure>
 <h3>ゲーム解析作業</h3>
 <h3>Qwen3.8-Flash-Next-Gyro-M（＋Strata ）</h3>
@@ -154,7 +160,7 @@ Gyro フォーマットの量子化モデルを使い、さらに Strata とい�
 ネットでの検索は行わないでください。
 逆アセンブル、mesen でのデバッグは許可します。
 </code></pre>
-<p>以下が結果であり、全モデル</p>
+<p>結果は全モデルが没コマンドを含めて解明できた。</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -172,7 +178,7 @@ Gyro フォーマットの量子化モデルを使い、さらに Strata とい�
 <tr>
 <td>DeepSeek V4.1 Flash</td>
 <td>3分</td>
-<td>筋が良い。<br>アプローチが人間に近い。バイナリの ASCII から探し始めるところとか</td>
+<td>筋が良い。<br>アプローチが人間に近い。ASCII から探し始めるところとか</td>
 </tr>
 <tr>
 <td>Qwen3.8-Flash-Next-Gyro-M（ローカル）</td>
@@ -184,7 +190,8 @@ Gyro フォーマットの量子化モデルを使い、さらに Strata とい�
 <h2>終わり</h2>
 <ul>
 <li>ローカルでも十分な仕事をしてくれる。特にセンシティブなデータの扱いや非検閲での作業環境はありがたい</li>
-<li>現在はほぼ全ての PC パーツが高いので気軽に組むことはできない。安くなった時にこれらのモデルのことも思い出してあげてください</li>
+<li>16 GB VRAM と 32GB〜 RAM あればコーディング以外はそんなに困ることはない</li>
+<li>とはいえ現在は PC パーツが高騰しているので気軽に組むことはできない。数年経ち落ち着いてきた時に、今回紹介したモデルのことも思い出してあげてください</li>
 </ul></article>
 </main>
 </body>

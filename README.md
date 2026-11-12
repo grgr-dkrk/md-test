@@ -8,12 +8,14 @@
 
 ## 更新
 
-原稿や素材を編集し、次を実行して HTML を生成します。
+GitHub 上で原稿を編集して `main` にコミットするだけで、GitHub Actions が HTML の生成と公開を自動で行います。ローカルでのビルドは不要です。素材を追加・変更した場合も、その素材を一緒にコミットしてください。
+
+ローカルで HTML を確認する場合は、次を実行して生成します。
 
 ```sh
 local-models-presentation/.venv/bin/python local-models-presentation/build.py
 ```
 
-変更した原稿・素材・生成結果をコミットして `main` に push すると、GitHub Actions が `local-models-presentation/dist/` を GitHub Pages にデプロイします。
+変更した原稿・素材をコミットして `main` に push すると、GitHub Actions が `local-models-presentation/dist/` を再生成して GitHub Pages にデプロイします。
 
 画像・音声・動画は相対URLで参照しています。ローカルで単体利用するための大きな埋め込み HTML、ZIP、仮想環境は Git 管理の対象外です。
