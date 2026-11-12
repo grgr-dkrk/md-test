@@ -81,9 +81,11 @@ def render(standalone):
         body = body.replace(f'<p>MEDIAINSERT{i}</p>', figure)
     # Keep the original captions and text, while presenting the two examples as a pair.
     body = re.sub(
-        r'(<p>Qwen</p>)\s*(<figure>.*?</figure>)\s*(<p>ChatGPT</p>)\s*(<figure>.*?</figure>)',
-        r'<div class="image-comparison"><figure><figcaption>Qwen</figcaption>\2</figure>'
-        r'<figure><figcaption>ChatGPT</figcaption>\4</figure></div>', body, count=1, flags=re.S)
+        r'(<p>一例<br\s*/?>\s*Qwen</p>)\s*(<figure>.*?</figure>)\s*'
+        r'(<p>ChatGPT</p>)\s*(<figure>.*?</figure>)',
+        r'<p>一例</p><div class="image-comparison">'
+        r'<div class="image-card"><p>Qwen</p>\2</div>'
+        r'<div class="image-card"><p>ChatGPT</p>\4</div></div>', body, count=1, flags=re.S)
     body = body.replace('OpenCode の無料のモデル', '<span class="free">OpenCode の無料のモデル</span>')
     body = body.replace('ChatGPT の Plus プラン（GPT-Image）', '<span class="paid">ChatGPT の Plus プラン（GPT-Image）</span>')
     body = body.replace('<table>', '<div class="table-scroll"><table>').replace('</table>', '</table></div>')
