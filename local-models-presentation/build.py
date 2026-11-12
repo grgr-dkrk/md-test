@@ -80,12 +80,16 @@ def render(standalone):
     for i, figure in enumerate(figures):
         body = body.replace(f'<p>MEDIAINSERT{i}</p>', figure)
     # Keep the original captions and text, while presenting the two examples as a pair.
+    body = re.sub(r'<p>一例<br\s*/?>\s*Qwen</p>', '<p>一例</p><p>Qwen</p>', body, count=1)
+    def image_comparison(match):
+        cards = re.findall(r'<p>([^<]+)</p>\s*(<figure>.*?</figure>)', match[2], re.S)
+        content = ''.join(f'<div class="image-card"><p>{caption}</p>{figure}</div>'
+                          for caption, figure in cards)
+        return match[1] + '<div class="image-comparison">' + content + '</div>'
     body = re.sub(
-        r'(<p>一例<br\s*/?>\s*Qwen</p>)\s*(<figure>.*?</figure>)\s*'
-        r'(<p>ChatGPT</p>)\s*(<figure>.*?</figure>)',
-        r'<p>一例</p><div class="image-comparison">'
-        r'<div class="image-card"><p>Qwen</p>\2</div>'
-        r'<div class="image-card"><p>ChatGPT</p>\4</div></div>', body, count=1, flags=re.S)
+        r'(<p>一例(?:<br\s*/?>\s*[^<]+)?</p>\s*)'
+        r'(((?:<p>[^<]+</p>\s*<figure>.*?</figure>\s*){2,}))',
+        image_comparison, body, count=1, flags=re.S)
     body = body.replace('OpenCode の無料のモデル', '<span class="free">OpenCode の無料のモデル</span>')
     body = body.replace('ChatGPT の Plus プラン（GPT-Image）', '<span class="paid">ChatGPT の Plus プラン（GPT-Image）</span>')
     body = body.replace('<table>', '<div class="table-scroll"><table>').replace('</table>', '</table></div>')

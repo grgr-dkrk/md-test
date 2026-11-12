@@ -64,6 +64,9 @@ Qwen
 ChatGPT
 ![[スクリーンショット 2026-11-12 23.55.27.png]]
 
+Gemini
+![[Gemini_Generated_Image_d4g3t4d4g3t4d4g3.jpg]]
+
 ちなみに使用しているのは Uncensored（非検閲）モデルだが、Qwen Image は普通のモデルでも危険な画像を出す時がある
 
 ### YuE2 （曲）

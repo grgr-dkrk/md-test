@@ -12,6 +12,10 @@
       "web_file": "4954192451bc.png"
     },
     {
+      "name": "Gemini_Generated_Image_d4g3t4d4g3t4d4g3.jpg",
+      "web_file": "b01765fcde8f.jpg"
+    },
+    {
       "name": "YuE2_cover_00061.flac",
       "web_file": "173e67c79c16.m4a"
     },
@@ -37,6 +41,10 @@
     }
   ],
   "attachments": [
+    {
+      "name": "Gemini_Generated_Image_d4g3t4d4g3t4d4g3.jpg",
+      "bytes": 286954
+    },
     {
       "name": "MiniMax_H3_00008_.mp4",
       "bytes": 2487766
