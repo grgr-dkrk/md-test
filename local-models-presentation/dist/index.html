@@ -72,22 +72,27 @@
 <li>非検閲でないとできない表現があるから</li>
 <li>冬場は暖を取れるから</li>
 </ul>
-<h3>ローカルの制約</h3>
-<h2>- クラウドに比べると遅い</h2>
+<h3>ローカルの欠点</h3>
+<p>と言うか基本は高性能なクラウドの AI に頼った方が良い</p>
+<ul>
+<li>クラウドに比べると遅い</li>
+<li>そのまま使うと性能がクラウドに比べ劣るので、チューニングが目的化していく</li>
+<li>電気代がかかる（5〜6h/1d で 500 円ぐらいはかかっているはず） </li>
+</ul>
 <h2>よく使うモデル</h2>
 <h3>Qwen-Image-2.1-Turbo-Uncensored（イラスト）</h3>
 <p><a href="https://qwen.ai/blog?id=qwen-image-2.1">https://qwen.ai/blog?id=qwen-image-2.1</a><br />
 Qwen-Image-2.1をベースとした非公式の派生モデル。画像生成・編集・透過画像の生成を統合している。</p>
 <p>テキストや参照画像の理解に視覚言語モデル（Qwen3-VL 8B）を使っており、自然言語による指示に対応。複数画像に登場する人物や物体を、一つの画像にまとめることもできる。</p>
 <p>汎用性の高い GPT-image には勝てない。</p>
-<h4>非検閲のいいところ（？）</h4>
+<h4>サンプル兼非検閲のいいところ（？）</h4>
 <p>大手の AI はモデレーションに敗北することがある</p>
 <ul>
 <li>暴力的な怪物キャラクターの描画ができない</li>
 <li>スカートを履いたキャラクターが正面を向けない</li>
 <li>最近は「マーベル風」「アメコミ風」とか指示しても引っかかることがある</li>
 </ul>
-<p>一例</p><div class="image-comparison"><div class="image-card"><p>Qwen</p><figure><img src="assets/1b6bcd74616a.png" alt="Qwen_image_2.1_00118.png" width="339"></figure></div><div class="image-card"><p>ChatGPT</p><figure><img src="assets/4954192451bc.png" alt="スクリーンショット 2026-11-12 23.55.27.png"></figure></div><div class="image-card"><p>Gemini</p><figure><img src="assets/b01765fcde8f.jpg" alt="Gemini_Generated_Image_d4g3t4d4g3t4d4g3.jpg"></figure></div></div><p>ちなみに使用しているのは Uncensored（非検閲）モデルだが、Qwen Image は普通のモデルでも危険な画像を出す時がある</p>
+<p>一例</p><div class="image-comparison"><div class="image-card"><p>Qwen</p><figure><img src="assets/1b6bcd74616a.png" alt="Qwen_image_2.1_00118.png" width="339"></figure></div><div class="image-card"><p>ChatGPT</p><figure><img src="assets/4954192451bc.png" alt="スクリーンショット 2026-11-12 23.55.27.png"></figure></div><div class="image-card"><p>Gemini（なんか出力できた）</p><figure><img src="assets/b01765fcde8f.jpg" alt="Gemini_Generated_Image_d4g3t4d4g3t4d4g3.jpg"></figure></div></div><p>ちなみに使用しているのは Uncensored（非検閲）モデルだが、Qwen Image は普通のモデルでも危険な画像を出す時がある</p>
 <h3>YuE2 （曲）</h3>
 <p><a href="https://yue2ai.app/">https://yue2ai.app/</a><br />
 楽譜の生成と音楽の生成を段階的にやるモデル。<br />
@@ -95,11 +100,11 @@ Qwen-Image-2.1をベースとした非公式の派生モデル。画像生成・
 無難な曲メーカーとして無難。<br />
 LoRA を用いればカバーもインストもいける</p>
 <h4>サンプル</h4>
-<p><del>Ella Langley "Choosin' Texas" の勝手カバー</del> 権利上の懸念があるため、サンプル音源を削除した</p>
-<figure class="linked-audio"><figcaption>sample1</figcaption><audio controls preload="metadata" aria-label="sample1" src="assets/2f4da1f8008b.m4a">音声を再生できません。</audio></figure>
-<figure class="linked-audio"><figcaption>sample2</figcaption><audio controls preload="metadata" aria-label="sample2" src="assets/878b2e6ebd1f.m4a">音声を再生できません。</audio></figure>
-<figure class="linked-audio"><figcaption>sample3</figcaption><audio controls preload="metadata" aria-label="sample3" src="assets/0a1a1fafb948.m4a">音声を再生できません。</audio></figure>
-<figure class="linked-audio"><figcaption>sample4</figcaption><audio controls preload="metadata" aria-label="sample4" src="assets/ab53c6b7cb25.m4a">音声を再生できません。</audio></figure>
+<p><del>Ella Langley "Choosin' Texas" の勝手カバー</del> 権利上の懸念があるので削除した</p>
+<figure class="linked-audio"><figcaption>sample1（フレンチハウスっぽい）</figcaption><audio controls preload="metadata" aria-label="sample1（フレンチハウスっぽい）" src="assets/2f4da1f8008b.m4a">音声を再生できません。</audio></figure>
+<figure class="linked-audio"><figcaption>sample2（R&amp;Bっぽい）</figcaption><audio controls preload="metadata" aria-label="sample2（R&amp;Bっぽい）" src="assets/878b2e6ebd1f.m4a">音声を再生できません。</audio></figure>
+<figure class="linked-audio"><figcaption>sample3（シンフォニックメタルっぽい）</figcaption><audio controls preload="metadata" aria-label="sample3（シンフォニックメタルっぽい）" src="assets/0a1a1fafb948.m4a">音声を再生できません。</audio></figure>
+<figure class="linked-audio"><figcaption>sample4（メタルっぽい）</figcaption><audio controls preload="metadata" aria-label="sample4（メタルっぽい）" src="assets/ab53c6b7cb25.m4a">音声を再生できません。</audio></figure>
 <h3>Minimax H3（動画）</h3>
 <p>映像・音声それぞれに専用のVAE（エンコーダーとデコーダーを含む仕組み）がある、それでいて軽い<br />
 動画に出す人物の写真かイラスト、声を生成した上で生成させるのが無難<br />
