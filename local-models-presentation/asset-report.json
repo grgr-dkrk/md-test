@@ -30,6 +30,22 @@
     {
       "name": "hakohaji2.mov",
       "web_file": "b6f41bda8338.mp4"
+    },
+    {
+      "name": "sample1.flac",
+      "web_file": "2f4da1f8008b.m4a"
+    },
+    {
+      "name": "sample2.flac",
+      "web_file": "878b2e6ebd1f.m4a"
+    },
+    {
+      "name": "sample3.flac",
+      "web_file": "0a1a1fafb948.m4a"
+    },
+    {
+      "name": "sample4.flac",
+      "web_file": "ab53c6b7cb25.m4a"
     }
   ],
   "attachments": [
@@ -52,6 +68,22 @@
     {
       "name": "hakohaji2.mov",
       "bytes": 592827
+    },
+    {
+      "name": "sample1.flac",
+      "bytes": 8092380
+    },
+    {
+      "name": "sample2.flac",
+      "bytes": 7655644
+    },
+    {
+      "name": "sample3.flac",
+      "bytes": 10381804
+    },
+    {
+      "name": "sample4.flac",
+      "bytes": 10206214
     },
     {
       "name": "south.mov",

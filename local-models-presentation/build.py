@@ -21,7 +21,10 @@ source = SOURCE / '最近ローカルでよく使っているモデル.md'
 original = source.read_text()
 ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
 embeds = list(dict.fromkeys(re.findall(r'!\[\[([^\]|]+)(?:\|[^\]]+)?\]\]', original)))
-missing = [name for name in embeds if not (SOURCE / name).is_file()]
+audio_links = re.findall(r'(?<!!)\[([^\]]+)\]\(([^)]+\.(?:flac|wav|mp3|m4a|mp4))\)', original, re.I)
+linked_audio = list(dict.fromkeys(name for _, name in audio_links))
+media_names = list(dict.fromkeys(embeds + linked_audio))
+missing = [name for name in media_names if not (SOURCE / name).is_file()]
 if missing:
     raise FileNotFoundError(', '.join(missing))
 
@@ -30,7 +33,7 @@ previous_report = PROJECT / 'asset-report.json'
 if previous_report.exists():
     previous = json.loads(previous_report.read_text())
     active_outputs = {entry['web_file'] for entry in previous.get('embedded', [])
-                      if entry['name'] in embeds}
+                      if entry['name'] in media_names}
     for entry in previous.get('embedded', []):
         stale = ASSETS / entry['web_file']
         if entry['name'] not in embeds and stale.name not in active_outputs and stale.exists():
@@ -59,6 +62,13 @@ for name in embeds:
         target = ASSETS / (stem + suffix)
         shutil.copy2(src, target)
         media[name] = ('image', target, None)
+for name in linked_audio:
+    if name not in media:
+        src = SOURCE / name
+        target = ASSETS / (hashlib.sha256(name.encode()).hexdigest()[:12] + '.m4a')
+        if not target.exists() or target.stat().st_mtime < src.stat().st_mtime:
+            subprocess.run([ffmpeg, '-v', 'error', '-y', '-i', str(src), '-c:a', 'aac', '-b:a', '256k', '-movflags', '+faststart', str(target)], check=True)
+        media[name] = ('audio', target, None)
 
 
 def uri(path, standalone):
@@ -85,6 +95,13 @@ def render(standalone):
         figures.append(f'<figure>{tag}</figure>')
         return '\n\nMEDIAINSERT' + str(len(figures)-1) + '\n\n'
     prepared = re.sub(r'!\[\[([^\]|]+)(?:\|([^\]]+))?\]\]', embed, original)
+    def render_audio_link(match):
+        label, name = match[1], match[2]
+        _, path, _ = media[name]
+        control = f'<figure class="linked-audio"><figcaption>{escape(label)}</figcaption><audio controls preload="metadata" aria-label="{escape(label, quote=True)}" src="{uri(path, standalone)}">音声を再生できません。</audio></figure>'
+        figures.append(control)
+        return '\n\nMEDIAINSERT' + str(len(figures)-1) + '\n\n'
+    prepared = re.sub(r'(?<!!)\[([^\]]+)\]\(([^)]+\.(?:flac|wav|mp3|m4a|mp4))\)', render_audio_link, prepared, flags=re.I)
     # The source contains bare URLs. Link them without changing the visible text.
     prepared = re.sub(r'(?m)^(https?://\S+)\s*$', lambda m:'<' + m[1] + '>', prepared)
     body = markdown.markdown(prepared, extensions=['tables', 'fenced_code', 'nl2br'], tab_length=4)
@@ -113,7 +130,7 @@ standalone_path.write_text(render(True))
 shutil.copy2(source, DIST / 'source.md')
 (DIST / '.nojekyll').touch()
 # Preserve all supplied media in the downloadable package, including unreferenced recordings.
-extensions = {'.mov', '.mp4', '.png', '.jpg', '.jpeg', '.webm'}
+extensions = {'.mov', '.mp4', '.png', '.jpg', '.jpeg', '.webm', '.flac'}
 files = sorted(p for p in SOURCE.iterdir() if p.is_file() and p.suffix.lower() in extensions)
 for path in files:
     shutil.copy2(path, ASSETS / path.name)

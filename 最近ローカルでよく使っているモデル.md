@@ -82,11 +82,18 @@ https://yue2ai.app/
 無難な曲メーカーとして無難。
 LoRA を用いればカバーもインストもいける
 
-#### ~~サンプル~~ （削除した）
+#### サンプル
 
-~~Ella Langley "Choosin' Texas" の勝手カバー~~ （削除した）
+~~Ella Langley "Choosin' Texas" の勝手カバー~~ 権利上の懸念があるため、サンプル音源を削除した
 
-権利上の懸念があるため、サンプル音源を削除しました。
+
+[sample1](sample1.flac)
+
+[sample2](sample2.flac)
+
+[sample3](sample3.flac)
+
+[sample4](sample4.flac)
 
 ### Minimax H3（動画）
 映像・音声それぞれに専用のVAE（エンコーダーとデコーダーを含む仕組み）がある、それでいて軽い
