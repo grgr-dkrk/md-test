@@ -25,6 +25,17 @@ missing = [name for name in embeds if not (SOURCE / name).is_file()]
 if missing:
     raise FileNotFoundError(', '.join(missing))
 
+# Remove generated audio for samples removed from the Markdown since the last build.
+previous_report = PROJECT / 'asset-report.json'
+if previous_report.exists():
+    previous = json.loads(previous_report.read_text())
+    active_outputs = {entry['web_file'] for entry in previous.get('embedded', [])
+                      if entry['name'] in embeds}
+    for entry in previous.get('embedded', []):
+        stale = ASSETS / entry['web_file']
+        if entry['name'] not in embeds and stale.name not in active_outputs and stale.exists():
+            stale.unlink()
+
 # Use ASCII URLs for hosted files; the standalone document embeds all its media.
 media = {}
 for name in embeds:
@@ -77,6 +88,7 @@ def render(standalone):
     # The source contains bare URLs. Link them without changing the visible text.
     prepared = re.sub(r'(?m)^(https?://\S+)\s*$', lambda m:'<' + m[1] + '>', prepared)
     body = markdown.markdown(prepared, extensions=['tables', 'fenced_code', 'nl2br'], tab_length=4)
+    body = re.sub(r'~~(.+?)~~', r'<del>\1</del>', body)
     for i, figure in enumerate(figures):
         body = body.replace(f'<p>MEDIAINSERT{i}</p>', figure)
     # Keep the original captions and text, while presenting the two examples as a pair.
@@ -101,7 +113,7 @@ standalone_path.write_text(render(True))
 shutil.copy2(source, DIST / 'source.md')
 (DIST / '.nojekyll').touch()
 # Preserve all supplied media in the downloadable package, including unreferenced recordings.
-extensions = {'.mov', '.mp4', '.png', '.flac', '.jpg', '.jpeg', '.webm', '.wav', '.mp3', '.m4a'}
+extensions = {'.mov', '.mp4', '.png', '.jpg', '.jpeg', '.webm'}
 files = sorted(p for p in SOURCE.iterdir() if p.is_file() and p.suffix.lower() in extensions)
 for path in files:
     shutil.copy2(path, ASSETS / path.name)
